@@ -7,21 +7,15 @@
   "description": "在vue2上使用组合API的玩具",
   "main": "./dist/main.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "dev": "webpack-dev-server --inline --config  webpack.config.js"
+    "build": "webpack --config webpack.config.js"
   },
   "license": "ISC",
-  "dependencies": {
-    "we": "^1.5.10"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/vue": "^2.0.0",
     "ts-loader": "^8.0.9",
     "typescript": "^4.0.5",
-    "vue": "^2.6.12",
-    "vue-types": "^2.0.2",
     "webpack": "^4.36.1",
-    "webpack-chain": "^6.5.1",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-cli": "^3.3.6"
   }
 }

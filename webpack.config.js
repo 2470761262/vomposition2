@@ -2,7 +2,7 @@ const path = require("path");
 process.env.NODE_ENV = 'production';//production
 module.exports = {
     
-    devtool: "eval-source-map",
+  //  devtool: "eval-source-map",
 
     entry: {
         main: path.join(__dirname, "./src/index.ts"),

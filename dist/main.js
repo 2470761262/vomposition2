@@ -1,1 +1,116 @@
-!function(Q,U){if("object"==typeof exports&&"object"==typeof module)module.exports=U();else if("function"==typeof define&&define.amd)define([],U);else{var F=U();for(var t in F)("object"==typeof exports?exports:Q)[t]=F[t]}}(window,function(){return function(Q){var U={};function F(t){if(U[t])return U[t].exports;var B=U[t]={i:t,l:!1,exports:{}};return Q[t].call(B.exports,B,B.exports,F),B.l=!0,B.exports}return F.m=Q,F.c=U,F.d=function(Q,U,t){F.o(Q,U)||Object.defineProperty(Q,U,{enumerable:!0,get:t})},F.r=function(Q){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(Q,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(Q,"__esModule",{value:!0})},F.t=function(Q,U){if(1&U&&(Q=F(Q)),8&U)return Q;if(4&U&&"object"==typeof Q&&Q&&Q.__esModule)return Q;var t=Object.create(null);if(F.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:Q}),2&U&&"string"!=typeof Q)for(var B in Q)F.d(t,B,function(U){return Q[U]}.bind(null,B));return t},F.n=function(Q){var U=Q&&Q.__esModule?function(){return Q.default}:function(){return Q};return F.d(U,"a",U),U},F.o=function(Q,U){return Object.prototype.hasOwnProperty.call(Q,U)},F.p="",F(F.s=0)}([function(module,exports,__webpack_require__){"use strict";eval('\r\nObject.defineProperty(exports, "__esModule", { value: true });\r\nexports.V2Init = exports.Vcomposition2 = void 0;\r\nvar Vcomposition2 = /** @class */ (function () {\r\n    function Vcomposition2(vm) {\r\n        this.root = null;\r\n        this.vm = vm;\r\n        this.root = this.vm.root;\r\n    }\r\n    Vcomposition2.prototype.onCreate = function (callback) {\r\n        var _this = this;\r\n        this.vm.$on("hook:created", function () {\r\n            var methods = callback();\r\n            methods && Object.assign(_this.vm, methods);\r\n        });\r\n    };\r\n    Vcomposition2.prototype.onMounted = function (callback) {\r\n        var _this = this;\r\n        this.vm.$on("hook:mounted", function () {\r\n            var methods = callback();\r\n            methods && Object.assign(_this.vm, methods);\r\n        });\r\n    };\r\n    Vcomposition2.prototype.onUnMounted = function (callback) {\r\n        this.vm.$on("hook:beforeDestroy", callback);\r\n    };\r\n    Vcomposition2.prototype.onDestroyed = function (callback) {\r\n        this.vm.$on("hook:destroyed", callback);\r\n    };\r\n    Vcomposition2.prototype.onWatch = function (exp, cb, options) {\r\n        return this.vm.$watch("root." + exp, cb, options);\r\n    };\r\n    Vcomposition2.prototype.onComputed = function (key, callback) {\r\n        this.vm.$watch(callback, function (newVal) {\r\n            this.$set(this.cd, key, newVal);\r\n        }, {\r\n            deep: true,\r\n            immediate: true\r\n        });\r\n    };\r\n    Vcomposition2.prototype.ref = function (key, value) {\r\n        this.vm.$set(this.vm.root, key, value);\r\n    };\r\n    return Vcomposition2;\r\n}());\r\nexports.Vcomposition2 = Vcomposition2;\r\nvar V2Init = function (vmOptions) {\r\n    vmOptions.data = function () {\r\n        return {\r\n            root: {},\r\n            cd: {}\r\n        };\r\n    };\r\n    return vmOptions;\r\n};\r\nexports.V2Init = V2Init;\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvaW5kZXgudHM/ZmZiNCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFTQTtJQUdJLHVCQUFZLEVBQVc7UUFEdkIsU0FBSSxHQUFRLElBQUksQ0FBQztRQUViLElBQUksQ0FBQyxFQUFFLEdBQUcsRUFBRSxDQUFDO1FBQ2IsSUFBSSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUMsRUFBRSxDQUFDLElBQUksQ0FBQztJQUM3QixDQUFDO0lBRUQsZ0NBQVEsR0FBUixVQUFTLFFBQWtCO1FBQTNCLGlCQUtDO1FBSkcsSUFBSSxDQUFDLEVBQUUsQ0FBQyxHQUFHLENBQUMsY0FBYyxFQUFFO1lBQ3hCLElBQU0sT0FBTyxHQUFRLFFBQVEsRUFBRSxDQUFDO1lBQ2hDLE9BQU8sSUFBSSxNQUFNLENBQUMsTUFBTSxDQUFDLEtBQUksQ0FBQyxFQUFFLEVBQUUsT0FBTyxDQUFDLENBQUM7UUFDL0MsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRUQsaUNBQVMsR0FBVCxVQUFVLFFBQWtCO1FBQTVCLGlCQUtDO1FBSkcsSUFBSSxDQUFDLEVBQUUsQ0FBQyxHQUFHLENBQUMsY0FBYyxFQUFFO1lBQ3hCLElBQU0sT0FBTyxHQUFRLFFBQVEsRUFBRSxDQUFDO1lBQ2hDLE9BQU8sSUFBSSxNQUFNLENBQUMsTUFBTSxDQUFDLEtBQUksQ0FBQyxFQUFFLEVBQUUsT0FBTyxDQUFDLENBQUM7UUFDL0MsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRUQsbUNBQVcsR0FBWCxVQUFZLFFBQWtCO1FBQzFCLElBQUksQ0FBQyxFQUFFLENBQUMsR0FBRyxDQUFDLG9CQUFvQixFQUFFLFFBQVEsQ0FBQyxDQUFDO0lBQ2hELENBQUM7SUFFRCxtQ0FBVyxHQUFYLFVBQVksUUFBa0I7UUFDMUIsSUFBSSxDQUFDLEVBQUUsQ0FBQyxHQUFHLENBQUMsZ0JBQWdCLEVBQUUsUUFBUSxDQUFDLENBQUM7SUFDNUMsQ0FBQztJQUVELCtCQUFPLEdBQVAsVUFBUSxHQUFXLEVBQUUsRUFBRSxFQUFFLE9BQXFCO1FBQzFDLE9BQU8sSUFBSSxDQUFDLEVBQUUsQ0FBQyxNQUFNLENBQUMsT0FBTyxHQUFHLEdBQUcsRUFBRSxFQUFFLEVBQUUsT0FBTyxDQUFDLENBQUM7SUFDdEQsQ0FBQztJQUVELGtDQUFVLEdBQVYsVUFBVyxHQUFVLEVBQUUsUUFBa0I7UUFDckMsSUFBSSxDQUFDLEVBQUUsQ0FBQyxNQUFNLENBQ1YsUUFBUSxFQUNSLFVBQVUsTUFBTTtZQUNaLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLEVBQUUsRUFBRSxHQUFHLEVBQUUsTUFBTSxDQUFDLENBQUM7UUFDcEMsQ0FBQyxFQUNEO1lBQ0ksSUFBSSxFQUFFLElBQUk7WUFDVixTQUFTLEVBQUUsSUFBSTtTQUNsQixDQUNKLENBQUM7SUFDTixDQUFDO0lBRUQsMkJBQUcsR0FBSCxVQUFJLEdBQVcsRUFBRSxLQUFVO1FBQ3ZCLElBQUksQ0FBQyxFQUFFLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUMsSUFBSSxFQUFFLEdBQUcsRUFBRSxLQUFLLENBQUMsQ0FBQztJQUMzQyxDQUFDO0lBS0wsb0JBQUM7QUFBRCxDQUFDO0FBWVEsc0NBQWE7QUFWdEIsSUFBTSxNQUFNLEdBQUcsVUFBZ0IsU0FBOEI7SUFDekQsU0FBUyxDQUFDLElBQUksR0FBRztRQUNiLE9BQU87WUFDSCxJQUFJLEVBQUUsRUFBRTtZQUNSLEVBQUUsRUFBRSxFQUFFO1NBQ1QsQ0FBQztJQUNOLENBQUMsQ0FBQztJQUNGLE9BQU8sU0FBUyxDQUFDO0FBQ3JCLENBQUM7QUFFdUIsd0JBQU0iLCJmaWxlIjoiMC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB2dWUsIHsgQ29tcG9uZW50T3B0aW9ucywgV2F0Y2hPcHRpb25zIH0gZnJvbSAndnVlJztcclxuXHJcbmludGVyZmFjZSBJdjJSb290IGV4dGVuZHMgdnVlIHtcclxuICAgIHJvb3Q6IGFueSxcclxuICAgIGNkOiBhbnlcclxufVxyXG5cclxudHlwZSBjYWxsYmFjayA9ICguLi5hcmc6IGFueVtdKSA9PiBhbnlcclxuXHJcbmNsYXNzIFZjb21wb3NpdGlvbjIge1xyXG4gICAgdm06IEl2MlJvb3Q7XHJcbiAgICByb290OiBhbnkgPSBudWxsO1xyXG4gICAgY29uc3RydWN0b3Iodm06IEl2MlJvb3QpIHtcclxuICAgICAgICB0aGlzLnZtID0gdm07XHJcbiAgICAgICAgdGhpcy5yb290ID0gdGhpcy52bS5yb290O1xyXG4gICAgfVxyXG5cclxuICAgIG9uQ3JlYXRlKGNhbGxiYWNrOiBjYWxsYmFjaykge1xyXG4gICAgICAgIHRoaXMudm0uJG9uKFwiaG9vazpjcmVhdGVkXCIsICgpID0+IHtcclxuICAgICAgICAgICAgY29uc3QgbWV0aG9kczogYW55ID0gY2FsbGJhY2soKTtcclxuICAgICAgICAgICAgbWV0aG9kcyAmJiBPYmplY3QuYXNzaWduKHRoaXMudm0sIG1ldGhvZHMpO1xyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG5cclxuICAgIG9uTW91bnRlZChjYWxsYmFjazogY2FsbGJhY2spIHtcclxuICAgICAgICB0aGlzLnZtLiRvbihcImhvb2s6bW91bnRlZFwiLCAoKSA9PiB7XHJcbiAgICAgICAgICAgIGNvbnN0IG1ldGhvZHM6IGFueSA9IGNhbGxiYWNrKCk7XHJcbiAgICAgICAgICAgIG1ldGhvZHMgJiYgT2JqZWN0LmFzc2lnbih0aGlzLnZtLCBtZXRob2RzKTtcclxuICAgICAgICB9KTtcclxuICAgIH1cclxuXHJcbiAgICBvblVuTW91bnRlZChjYWxsYmFjazogY2FsbGJhY2spIHtcclxuICAgICAgICB0aGlzLnZtLiRvbihcImhvb2s6YmVmb3JlRGVzdHJveVwiLCBjYWxsYmFjayk7XHJcbiAgICB9XHJcblxyXG4gICAgb25EZXN0cm95ZWQoY2FsbGJhY2s6IGNhbGxiYWNrKSB7XHJcbiAgICAgICAgdGhpcy52bS4kb24oXCJob29rOmRlc3Ryb3llZFwiLCBjYWxsYmFjayk7XHJcbiAgICB9XHJcblxyXG4gICAgb25XYXRjaChleHA6IHN0cmluZywgY2IsIG9wdGlvbnM6IFdhdGNoT3B0aW9ucykge1xyXG4gICAgICAgIHJldHVybiB0aGlzLnZtLiR3YXRjaChcInJvb3QuXCIgKyBleHAsIGNiLCBvcHRpb25zKTtcclxuICAgIH1cclxuXHJcbiAgICBvbkNvbXB1dGVkKGtleTpzdHJpbmcsIGNhbGxiYWNrOiBjYWxsYmFjaykge1xyXG4gICAgICAgIHRoaXMudm0uJHdhdGNoKFxyXG4gICAgICAgICAgICBjYWxsYmFjayxcclxuICAgICAgICAgICAgZnVuY3Rpb24gKG5ld1ZhbCkge1xyXG4gICAgICAgICAgICAgICAgdGhpcy4kc2V0KHRoaXMuY2QsIGtleSwgbmV3VmFsKTtcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgZGVlcDogdHJ1ZSxcclxuICAgICAgICAgICAgICAgIGltbWVkaWF0ZTogdHJ1ZVxyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgKTtcclxuICAgIH1cclxuXHJcbiAgICByZWYoa2V5OiBzdHJpbmcsIHZhbHVlOiBhbnkpIHtcclxuICAgICAgICB0aGlzLnZtLiRzZXQodGhpcy52bS5yb290LCBrZXksIHZhbHVlKTtcclxuICAgIH1cclxuXHJcbiAgICAvLyByZWFjdGl2ZSh2YWx1ZSkge1xyXG4gICAgLy8gICAgIHJldHVybiBPYmplY3QuYXNzaWduKHRoaXMudm0sICh0aGlzLnZtLiRvcHRpb25zIGFzIGFueSkuX2Jhc2Uub2JzZXJ2YWJsZSh2YWx1ZSkpO1xyXG4gICAgLy8gfVxyXG59XHJcblxyXG5jb25zdCBWMkluaXQgPSA8VCBleHRlbmRzIHZ1ZT4odm1PcHRpb25zOiBDb21wb25lbnRPcHRpb25zPFQ+KTogQ29tcG9uZW50T3B0aW9uczxUPiA9PiB7XHJcbiAgICB2bU9wdGlvbnMuZGF0YSA9IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICByZXR1cm4ge1xyXG4gICAgICAgICAgICByb290OiB7fSxcclxuICAgICAgICAgICAgY2Q6IHt9XHJcbiAgICAgICAgfTtcclxuICAgIH07XHJcbiAgICByZXR1cm4gdm1PcHRpb25zO1xyXG59XHJcblxyXG5leHBvcnQgeyBWY29tcG9zaXRpb24yLCBWMkluaXQgfTtcclxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///0\n')}])});
+!(function (t, e) {
+  if ("object" == typeof exports && "object" == typeof module)
+    module.exports = e();
+  else if ("function" == typeof define && define.amd) define([], e);
+  else {
+    var o = e();
+    for (var n in o) ("object" == typeof exports ? exports : t)[n] = o[n];
+  }
+})(window, function () {
+  return (function (t) {
+    var e = {};
+    function o(n) {
+      if (e[n]) return e[n].exports;
+      var r = (e[n] = { i: n, l: !1, exports: {} });
+      return t[n].call(r.exports, r, r.exports, o), (r.l = !0), r.exports;
+    }
+    return (
+      (o.m = t),
+      (o.c = e),
+      (o.d = function (t, e, n) {
+        o.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: n });
+      }),
+      (o.r = function (t) {
+        "undefined" != typeof Symbol &&
+          Symbol.toStringTag &&
+          Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }),
+          Object.defineProperty(t, "__esModule", { value: !0 });
+      }),
+      (o.t = function (t, e) {
+        if ((1 & e && (t = o(t)), 8 & e)) return t;
+        if (4 & e && "object" == typeof t && t && t.__esModule) return t;
+        var n = Object.create(null);
+        if (
+          (o.r(n),
+          Object.defineProperty(n, "default", { enumerable: !0, value: t }),
+          2 & e && "string" != typeof t)
+        )
+          for (var r in t)
+            o.d(
+              n,
+              r,
+              function (e) {
+                return t[e];
+              }.bind(null, r)
+            );
+        return n;
+      }),
+      (o.n = function (t) {
+        var e =
+          t && t.__esModule
+            ? function () {
+                return t.default;
+              }
+            : function () {
+                return t;
+              };
+        return o.d(e, "a", e), e;
+      }),
+      (o.o = function (t, e) {
+        return Object.prototype.hasOwnProperty.call(t, e);
+      }),
+      (o.p = ""),
+      o((o.s = 0))
+    );
+  })([
+    function (t, e, o) {
+      "use strict";
+      Object.defineProperty(e, "__esModule", { value: !0 }),
+        (e.V2Init = e.Vcomposition2 = void 0);
+      e.Vcomposition2 = class {
+        constructor(t) {
+          (this.root = null), (this.vm = t), (this.root = this.vm.root);
+        }
+        onCreate(t) {
+          this.vm.$on("hook:created", () => {
+            const e = t();
+            e && Object.assign(this.vm, e);
+          });
+        }
+        onMounted(t) {
+          this.vm.$on("hook:mounted", () => {
+            const e = t();
+            e && Object.assign(this.vm, e);
+          });
+        }
+        onUnMounted(t) {
+          this.vm.$on("hook:beforeDestroy", t);
+        }
+        onDestroyed(t) {
+          this.vm.$on("hook:destroyed", t);
+        }
+        onWatch(t, e, o) {
+          return this.vm.$watch("root." + t, e, o);
+        }
+        onComputed(t, e) {
+          this.vm.$watch(
+            e,
+            function (e) {
+              this.$set(this.cd, t, e);
+            },
+            { deep: !0, immediate: !0 }
+          );
+        }
+        ref(t, e) {
+          this.vm.$set(this.vm.root, t, e);
+        }
+      };
+      e.V2Init = (t) => (
+        (t.data = function () {
+          return { root: {}, cd: {} };
+        }),
+        t
+      );
+    },
+  ]);
+});
