@@ -1,29 +1,16 @@
 {
     "compilerOptions": {
-        //输出目录为build
-       // "outDir": "./built/ts",
-        //接受js作为输入
         "allowJs": true,
-        //转换为es5
-        "target": "es5",
-        //下面为可选的
-        //模块引用方式为commonjs
-        "module": "commonjs",
-        //用mode进行模块解析
+        "target": "esnext",
+        "module": "umd",
         "moduleResolution": "node",
-        //使用sourceMap
-        "sourceMap": true,
-        //启用实验性的metadata API
-        "emitDecoratorMetadata": true,
-        //启用实验性的装饰器
-        "experimentalDecorators": true,
-        //不删去注释
-        "removeComments": false,
-        //不启用严格检查
+        //"sourceMap": true,
+        //"emitDecoratorMetadata": true,
+        //"experimentalDecorators": true,
+        //"removeComments": false,
         "noImplicitAny": false
     },
     "include": [
-        //读取src目录下的所有文件
         "./src/**/*"
     ]
 }

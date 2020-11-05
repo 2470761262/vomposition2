@@ -4,8 +4,7 @@ import {
   ComponentOptions,
   WatchOptions,
   vue,
-} from "./index";
-
+} from "./inedx";
 class Vcomposition2 {
   vm: Iv2Root;
   root: any;
