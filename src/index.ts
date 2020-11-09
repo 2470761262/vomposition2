@@ -60,8 +60,12 @@ class Vcomposition2 {
 const V2Init = <T extends vue>(
   vmOptions: ComponentOptions<T>
 ): ComponentOptions<T> => {
+
+  const optionsData = vmOptions.data ? (vmOptions as any).data() : {}
+
   vmOptions.data = function () {
     return {
+      ...optionsData,
       root: {},
       cd: {},
     };
