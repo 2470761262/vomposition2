@@ -56,9 +56,16 @@ class Vcomposition2 {
         this.vm.$set(this.vm.root, key, value);
     }
 
-    use(callback:callback):Vcomposition2{
-        const methods: any = callback.call(this.vm,this,this.root);
-        methods && Object.assign(this.vm, methods);
+    use(callback: callback | Array<callback>): Vcomposition2 {
+
+        let callbackList = Array.isArray(callback) ? callback : [callback];
+
+        callbackList.forEach(f => {
+            const methods: any = f.call(this.vm, this, this.root);
+            methods && Object.assign(this.vm, methods);
+        })
+
+
         return this;
     }
 }
