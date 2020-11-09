@@ -33,9 +33,18 @@
       v2.onCreate(() => {
         v2.ref("value", "张三");
 
-        // v2.reactive({
-        //   age: 24,
-        // });
+        v2.reactive({
+            qwe: false,
+            ewq: false
+        });
+
+          /**
+         * v2.use(Funtion); or  v2.use(Array<Funtion>)
+         * v2.use(Funtion).use(Funtion)
+         * 将业务逻辑抽离出来就类似useHook
+         * 不过需要挂载会传递两个参数 懒的写了,有兴趣自己玩吧
+         */
+        v2.use(useSelect).use(useEchart);
 
         setTimeout(() => {
           this.age = 18;

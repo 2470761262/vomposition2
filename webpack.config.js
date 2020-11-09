@@ -10,7 +10,7 @@ fs.writeFileSync('package.json', JSON.stringify(package,null,4));
 
 module.exports = {
 
-    devtool: "eval-source-map",
+    //devtool: "eval-source-map",
 
     entry: {
         main: path.join(__dirname, "./src/index.ts"),
