@@ -23,7 +23,7 @@ export class Vcomposition2 {
 
   ref(key: string, value: any): void;
 
-  use(callback:callback):void;
+  use(callback:callback):Vcomposition2;
 }
 
 export const V2Init: <T extends vue>(
