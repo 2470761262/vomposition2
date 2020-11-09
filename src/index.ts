@@ -16,14 +16,14 @@ class Vcomposition2 {
     onCreate(callback: callback) {
         this.vm.$on("hook:created", () => {
             const methods: any = callback();
-            methods && (Object as any).assign(this.vm, methods);
+            methods && Object.assign(this.vm, methods);
         });
     }
 
     onMounted(callback: callback) {
         this.vm.$on("hook:mounted", () => {
             const methods: any = callback();
-            methods && (Object as any).assign(this.vm, methods);
+            methods && Object.assign(this.vm, methods);
         });
     }
 
@@ -58,7 +58,7 @@ class Vcomposition2 {
 
     use(callback:callback){
         const methods: any = callback.call(this,this,this.root);
-        methods && (Object as any).assign(this.vm, methods);
+        methods && Object.assign(this.vm, methods);
     }
 }
 
