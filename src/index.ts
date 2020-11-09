@@ -51,8 +51,14 @@ class Vcomposition2 {
             }
         );
     }
-
+    /**
+     * @description 
+     * Object.assign会把Object.defineProperties的getset合并没
+     * 最终挂载到this上的属性基本是响应式也会没有getset
+     * Object.assign(this.vm,this.vm.$options._base.observable(value))  xxxx 不行
+     */
     ref(key: string, value: any) {
+        
         this.vm.$set(this.vm.root, key, value);
     }
 
