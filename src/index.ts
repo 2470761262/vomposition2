@@ -6,7 +6,7 @@ import {
     vue,
 } from "./inedx";
 
-import { isObject } from './utils/index';
+
 
 class Vcomposition2 {
     vm: Iv2Root;
@@ -56,7 +56,7 @@ class Vcomposition2 {
     }
 
     ref(key: string, value: any) {
-        if (isObject(value)) {
+        if (Object.prototype.toString.call(value) == '[object Object]') {
             Object.keys(value).forEach(v => {
                 this.vm.$set(this.vm.root, v, value[v]);
             })
