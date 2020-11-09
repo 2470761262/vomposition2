@@ -57,7 +57,7 @@ class Vcomposition2 {
     }
 
     use(callback:callback){
-        const methods: any = callback(this,this.root);
+        const methods: any = callback.call(this,this.root);
         methods && (Object as any).assign(this.vm, methods);
     }
 }

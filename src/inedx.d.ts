@@ -22,6 +22,8 @@ export class Vcomposition2 {
   onComputed(key: string, callback: callback): void;
 
   ref(key: string, value: any): void;
+
+  use(callback:callback):void;
 }
 
 export const V2Init: <T extends vue>(
