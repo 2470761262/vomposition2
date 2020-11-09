@@ -5,9 +5,6 @@ import {
     WatchOptions,
     vue,
 } from "./inedx";
-
-
-
 class Vcomposition2 {
     vm: Iv2Root;
     root: any;
@@ -56,13 +53,13 @@ class Vcomposition2 {
     }
 
     ref(key: string, value: any) {
-        if (Object.prototype.toString.call(value) == '[object Object]') {
-            Object.keys(value).forEach(v => {
-                this.vm.$set(this.vm.root, v, value[v]);
-            })
-        } else {
-            this.vm.$set(this.vm.root, key, value);
-        }
+        this.vm.$set(this.vm.root, key, value);
+    }
+
+    reactive(value:any){
+        Object.keys(value).forEach((v)=>{
+            this.ref(v,value[v]);
+        })
     }
 
     use(callback: callback | Array<callback>): Vcomposition2 {

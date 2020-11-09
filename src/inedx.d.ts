@@ -23,7 +23,10 @@ export class Vcomposition2 {
 
     ref(key: string, value: any): void;
 
+    reactive(value: any): void;
+
     use(callback: callback | Array<callback>): Vcomposition2;
+
 }
 
 export const V2Init: <T extends vue>(
