@@ -55,6 +55,11 @@ class Vcomposition2 {
     ref(key: string, value: any) {
         this.vm.$set(this.vm.root, key, value);
     }
+
+    use(callback:callback){
+        const methods: any = callback(this,this.root);
+        methods && (Object as any).assign(this.vm, methods);
+    }
 }
 
 const V2Init = <T extends vue>(
