@@ -61,10 +61,9 @@ const V2Init = <T extends vue>(
     vmOptions: ComponentOptions<T>
 ): ComponentOptions<T> => {
 
-    //这里会提示没有调用签名,改如何解决
-    //没有没有大佬带带 还有我这里的data直接执行 但是vue是在有实例的时候去执行的data
+    // 但是vue是在有实例的时候去执行的data
     //会给data传入当前的vue实例,而我这里还没有实例,也就是说data里的对象不能写this
-    const optionsData = vmOptions.data ? (vmOptions as any).data() : {}
+    const optionsData = vmOptions.data ? (vmOptions.data as Function)() : {}
 
     vmOptions.data = function () {
         return {
