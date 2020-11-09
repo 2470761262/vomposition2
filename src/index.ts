@@ -5,6 +5,9 @@ import {
     WatchOptions,
     vue,
 } from "./inedx";
+
+import { isObject } from './utils/index';
+
 class Vcomposition2 {
     vm: Iv2Root;
     root: any;
@@ -53,7 +56,13 @@ class Vcomposition2 {
     }
 
     ref(key: string, value: any) {
-        this.vm.$set(this.vm.root, key, value);
+        if (isObject(value)) {
+            Object.keys(value).forEach(v => {
+                this.vm.$set(this.vm.root, v, value[v]);
+            })
+        } else {
+            this.vm.$set(this.vm.root, key, value);
+        }
     }
 
     use(callback: callback | Array<callback>): Vcomposition2 {
